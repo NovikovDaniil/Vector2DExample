@@ -18,23 +18,22 @@ Vector2d::Vector2d(const Vector2d& other) {
 	this->x = other.x;
 	this->y = other.y;
 }
-void Vector2d::sum(Vector2d b) {
-	x = x + b.x;
-	y = y + b.y;
+Vector2d Vector2d::sum(Vector2d b) {
+	return Vector2d(x + b.x, y + b.y);
 }
-void Vector2d::mult(double num) {
-	x = x * num;
-	y = y * num;
+
+Vector2d Vector2d::mult(double num) {
+	return Vector2d(x * num, y * num);
 }
+Vector2d Vector2d::sub(Vector2d b) {
+	return Vector2d(x - b.x, y - b.y);
+}
+
 void Vector2d::print() {
 	cout << "( " << x << " ; " << y << " )" << endl;
 }
 double Vector2d::scalarMult(Vector2d b) {
 	return x * b.x + y * b.y;
-}
-void Vector2d::sub(Vector2d b) {
-	x = x - b.x;
-	y = y - b.y;
 }
 double Vector2d::len() {
 	return sqrt(pow(x, 2) + pow(y, 2));

@@ -17,4 +17,11 @@ int main() {
 	cout << a.getx() << endl;
 	a.setx(8);
 	cout << a.getx() << endl;
+	Vector2d c = a.sub(b);
+	a.print();
+	b.print();
+	c.print();
+	Vector2d d = a.mult(10);
+	d.print();
+
 }
