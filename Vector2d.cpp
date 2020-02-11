@@ -1,5 +1,6 @@
 #include "Vector2d.h"
 #include <iostream>
+#include<string>
 using namespace std;
 #define M_PI       3.14159265358979323846
 Vector2d::~Vector2d() {
@@ -40,4 +41,73 @@ double Vector2d::len() {
 }
 double Vector2d::angle(Vector2d b) {
 	return acos(this->scalarMult(b) / (this->len() * b.len())) * 180 / M_PI;
+}
+Vector2d Vector2d::operator+(const Vector2d& v) const
+{
+	return Vector2d(x + v.x, y + v.y);
+}
+Vector2d Vector2d::operator-(const Vector2d& v) const
+{
+	return Vector2d(x - v.x, y - v.y);
+}
+double Vector2d::operator*(const Vector2d& v) const
+{
+	return (x * v.x + y * v.y);
+}
+Vector2d Vector2d::operator*(const double& v) const
+{
+	return Vector2d(x * v, y * v);
+}
+Vector2d operator*(double r, Vector2d& a)
+{
+	return a * r;
+}
+Vector2d& Vector2d::operator++()
+{
+	x++;
+	y++;
+	return *this;
+}
+Vector2d Vector2d::operator++(int)
+{
+	Vector2d tmp(x, y);
+	x++;
+	y++;
+	return tmp;
+}
+Vector2d& Vector2d::operator--()
+{
+	x--;
+	y--;
+	return *this;
+}
+Vector2d Vector2d::operator--(int)
+{
+	Vector2d tmp(x, y);
+	x--;
+	y--;
+	return tmp;
+}
+const Vector2d& Vector2d::operator+=(const Vector2d& v)
+{
+	x += v.x;
+	y += v.y;
+	return *this;
+}
+const Vector2d& Vector2d::operator-=(const Vector2d& v)
+{
+	x -= v.x;
+	y -= v.y;
+	return *this;
+}
+const Vector2d& Vector2d::operator*=(const double& v)
+{
+	x *= v;
+	y *= v;
+	return *this;
+}
+Vector2d::operator std::string()
+{
+	std::string s = "( " + to_string(x) + " ; " + to_string(y) + " )";
+	return s;
 }

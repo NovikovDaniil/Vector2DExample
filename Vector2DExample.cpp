@@ -2,26 +2,30 @@
 //
 
 #include <iostream>
+#include<string>
 #include "Vector2d.h"
 using namespace std;
 
 int main() {
 	Vector2d a(1, 3);
-	a.print();
+	cout << (string)a << endl;
 	Vector2d b(4, 2);
-	b.print();
-	cout << a.scalarMult(b) << endl;
-	cout << a.len() << endl;
-	cout << b.len() << endl;
-	cout << a.angle(b) << endl;
-	cout << a.getx() << endl;
-	a.setx(8);
-	cout << a.getx() << endl;
-	Vector2d c = a.sub(b);
-	a.print();
-	b.print();
-	c.print();
-	Vector2d d = a.mult(10);
-	d.print();
-
+	cout << (string)b << endl;
+	Vector2d c = a + b;
+	cout << (string)c << endl;
+	Vector2d d = a * 10;
+	cout << (string)d << endl;
+	Vector2d e = a - b;
+	cout << a * b << endl;
+	Vector2d f = 10 * a;
+	cout << (string)f << endl;
+	++b;
+	cout << (string)b << endl;
+	Vector2d g = a++;
+	cout << (string)g << endl;
+	cout << (string)a << endl;
+	--a;
+	cout << (string)a << endl;
+	a -= b;
+	cout << (string)a << endl;
 }
